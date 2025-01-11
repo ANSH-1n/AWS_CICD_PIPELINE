@@ -7,7 +7,7 @@ const port = 8000;
 app.use(express.json());
 
 // Define a simple route
-app.get('/', (req, res) => {
+app.get('/api/get', (req, res) => {
   res.send('Hello, world!');
 });
 
