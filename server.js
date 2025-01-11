@@ -1,8 +1,10 @@
 import express from 'express';
+import dotenv from 'dotenv';
 
+dotenv.config()
 const app = express();
-const port = 8000;
 
+const PORT = process.env.PORT
 // Middleware to parse JSON bodies
 app.use(express.json());
 
@@ -22,6 +24,6 @@ app.get('/api/get_user_details', (req, res) => {
   });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
