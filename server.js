@@ -1,10 +1,13 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
-dotenv.config()
+
 const app = express();
+dotenv.config()
+
 
 const PORT = process.env.PORT
+
 // Middleware to parse JSON bodies
 app.use(express.json());
 
@@ -19,7 +22,7 @@ app.get('/api/get_user_details', (req, res) => {
             name : "Ansh",
             age : 20,
             contact : 172288282
-        }
+        },env : process.env.NAME
     });
   });
 
