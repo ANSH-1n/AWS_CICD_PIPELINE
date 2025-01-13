@@ -125,7 +125,7 @@ const PORT = process.env.PORT || 8000;
 app.use(express.json());
 
 
-app.get('/api/get_user_details', (req, res) => {
+app.get('/api/get', (req, res) => {
   res.send(`
     <h1>Login Page</h1>
     <form id="loginForm">
