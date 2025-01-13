@@ -49,7 +49,7 @@ app.use(express.json());
 
 // Define a simple route
 app.get('/api/get', (req, res) => {
-  res.send('<h1>Hello, world!</h1>');
+  res.send('<h1>Jai Shree Ram</h1>');
 });
 
 // Route to send user details and include HTML content
