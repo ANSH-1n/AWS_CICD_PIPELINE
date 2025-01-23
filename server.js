@@ -97,13 +97,10 @@
 
 
 
-
 import express from 'express';
 import dotenv from 'dotenv';
 // Import AWS SDK v3 modules
-import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
-import pkg from '@aws-sdk/lib-dynamodb';
-const { PutItemCommand } = pkg; // Get PutItemCommand from the CommonJS module
+import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';  // Correct import for PutItemCommand
 
 const app = express();
 dotenv.config();
@@ -184,11 +181,8 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-// Start the server
+// Ensure server starts correctly
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
-
-
-
 
