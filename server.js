@@ -98,12 +98,6 @@
 
 
 
-
-
-
-
-
-
 import express from 'express';
 import dotenv from 'dotenv';
 // Import AWS SDK v3 modules
@@ -191,6 +185,10 @@ app.post('/api/login', async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
+
+
+
+
