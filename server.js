@@ -97,19 +97,26 @@
 
 
 
+
+
 import express from 'express';
 import dotenv from 'dotenv';
 // Import AWS SDK v3 modules
 import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';  // Correct import for PutItemCommand
 
-const app = express();
+// Load environment variables
 dotenv.config();
 
-// Initialize DynamoDB v3 client
-const dynamoDB = new DynamoDBClient({ region: 'ap-south-1' });  // Use the AWS region you're working with
-const TABLE_NAME = 'UserLogins'; // Your DynamoDB table name
+const app = express();
 
-const PORT = process.env.PORT || 8000;
+// Initialize DynamoDB v3 client using region from .env file
+const dynamoDB = new DynamoDBClient({ 
+  region: process.env.AWS_REGION || 'ap-south-1',  // Using environment variable for region
+});  
+
+const TABLE_NAME = process.env.TABLE_NAME || 'UserLogins'; // Get table name from .env
+
+const PORT = process.env.PORT || 8000;  // Use the port from .env file or default to 8000
 
 // Middleware to parse JSON bodies
 app.use(express.json());
@@ -185,4 +192,8 @@ app.post('/api/login', async (req, res) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running on http://0.0.0.0:${PORT}`);
 });
+
+
+
+
 
